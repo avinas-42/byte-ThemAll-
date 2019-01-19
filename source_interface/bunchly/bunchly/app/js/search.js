@@ -19,28 +19,7 @@ $(document).ready(function(){
     function doneTyping () {
         console.log($("#search-input").val());
     }
-    fetch("http://localhost/app/bunchly/index.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        credentials: 'same-origin',
-    
-        // this line is to allow to push on my rails app through the plug_in
-        body: JSON.stringify({
-          
-          tags: "tags"
-        })
-      })
-      .then(response => response.json())
-      .then((data) => {
-        
-        if(data.status == "ok") {
-         
-        }else if(data.status == "already"){
-          
-        }
-      });
+
     
 
 });
