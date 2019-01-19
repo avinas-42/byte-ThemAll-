@@ -1,0 +1,43 @@
+body
+{
+    width: 100%;
+    
+    background-color: blueviolet;
+}
+
+div
+{
+    background-color: white;
+}
+
+#search-div
+{
+    float: top;
+    width: 60%;
+    height: 5%;
+    margin-left: 26%;
+
+    border-style: solid;
+
+}
+
+#label-div
+{
+    float:left;
+    width: 20%;
+    padding-bottom: 100%;
+    margin: 2%;
+
+    border-style: solid;
+}
+
+#display-div
+{
+    float:left;
+    width: 60%;
+    padding-bottom: 90%;
+    margin: 2%;
+
+    border-style: solid;
+
+}
