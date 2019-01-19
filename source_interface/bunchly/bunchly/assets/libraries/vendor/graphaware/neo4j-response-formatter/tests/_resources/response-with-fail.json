@@ -1,0 +1,9 @@
+{
+    "errors": [
+        {
+            "code": "Neo.ClientError.Statement.InvalidSyntax", 
+            "message": "Invalid input ' ': expected 'e/E' (line 1, column 6 (offset: 5))\n\"CREAT (n:User)-[r:KNOWS]->(b:User {id:234}) RETURN *\"\n      ^"
+        }
+    ], 
+    "results": []
+}

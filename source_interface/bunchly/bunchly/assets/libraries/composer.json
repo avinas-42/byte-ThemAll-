@@ -1,0 +1,5 @@
+{
+    "require": {
+        "neoxygen/neoclient": "^3.3"
+    }
+}
