@@ -1,0 +1,30 @@
+language: php
+sudo: false
+php:
+    - 5.5
+    - 5.6
+    - 7.0
+
+env:
+  - NEO_VERSION="2.1.6"
+  - NEO_VERSION="2.1.8"
+  - NEO_VERSION="2.2.2"
+  - NEO_VERSION="2.2.3"
+
+before_install:
+    - wget dist.neo4j.org/neo4j-community-$NEO_VERSION-unix.tar.gz > null
+    - tar -xzf neo4j-community-$NEO_VERSION-unix.tar.gz > null
+    - neo4j-community-$NEO_VERSION/bin/neo4j start > null
+    - composer self-update
+    - COMPOSER_ROOT_VERSION=dev-master composer install
+
+before_script:
+    #- composer install --prefer-source --no-interaction
+    - mv tests/database_settings.yml.dist tests/database_settings.yml
+
+script:
+    - ./tests/setNeoToken.sh
+    - vendor/bin/phpunit
+
+notifications:
+    email: "willemsen.christophe@gmail.com"

@@ -1,0 +1,30 @@
+{
+    "name": "graphaware/neo4j-response-formatter",
+    "description": "Response Formatter for NeoClient",
+    "type": "library",
+    "require": {
+        "psr/http-message": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.7",
+        "neoxygen/neoclient": "^3.2",
+        "phpspec/prophecy": "^1.4"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christophe Willemsen",
+            "email": "christophe@graphaware.com"
+        }
+    ],
+    "autoload": {
+      "psr-4": {
+        "GraphAware\\NeoClient\\Formatter\\": "src/"
+      }
+    },
+    "autoload-dev": {
+      "psr-4": {
+        "GraphAware\\NeoClient\\Formatter\\Tests\\": "tests/"
+      }
+    }
+}
