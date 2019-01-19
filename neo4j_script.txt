@@ -1,0 +1,38 @@
+LOAD CSV WITH  HEADERS FROM "file:///ecole.csv" AS ecole
+create (e:Ecole{id:ecole.id,nom:ecole.nom})
+LOAD CSV WITH  HEADERS FROM "file:///entreprise.csv" AS entreprise
+create (en:Entreprise{id:entreprise.id,nom:entreprise.nom})
+LOAD CSV WITH  HEADERS FROM "file:///domaine_influence.csv" AS domaine_influence
+create (d:Domaine_influence{id:domaine_influence.id,libelle:domaine_influence.libelle})
+LOAD CSV WITH  HEADERS FROM "file:///personne_ecole.csv" AS personne_ecole
+create (pe:Personne_ecole{arrivee:personne_ecole.arrivee,depart:personne_ecole.depart,ecole_id:personne_ecole.ecole_id,personne_id:personne_ecole.personne_id})
+LOAD CSV WITH HEADERS FROM "file:///vile.csv" AS ville
+create (v:Ville{id:ville.id,nom:ville.nom,pays:ville.pays})
+LOAD CSV WITH HEADERS FROM "file:///personne.csv" AS ville
+create (p:Person{id:ville.id,nom:ville.nom,prenom:ville.prenom})
+
+
+
+load csv with headers from "file:///entreprise_influence.csv" as row
+match(i:Domaine_influence{id:row.entreprise_id}),(e:Entreprise{id:row.influence_id})
+create (e)-[:influe_in]->(i)
+load csv with headers from "file:///ecole_influence.csv" as row
+match(i:Domaine_influence{id:row.ecole_id}),(e:Ecole{id:row.influence_id})
+create (e)-[:influe_in]->(i)
+load csv with headers from "file:///personne_influence.csv" as row
+match(i:Domaine_influence{id:row.personne_id}),(e:Person{id:row.influence_id})
+create (e)-[:influe_in]->(i)
+load csv with headers from "file:///tbl_amis.csv" as row
+match(e:Person{id:row.amis_de_id}),(i:Person{id:row.ami_id})
+create (e)-[:are_friend]->(i)
+load csv with headers from "file:///tbl_dossier.csv" as row
+match(e:Person{id:row.dossier_id}),(i:Person{id:row.a_dossier_id})
+create (e)-[:file_to]->(i)
+
+load csv with headers from "file:///personne_ecole.csv" as row
+match(e:Person{id:row.personne_id}),(i:Ecole{id:row.ecole_id})
+create (e)-[:studies_in{arrivee:row.arrivee,depart:row.depart}]->(i)
+
+load csv with headers from "file:///personne_entreprise.csv" as row
+match(e:Person{id:row.personne_id}),(i:Entreprise{id:row.entreprise_id})
+create (e)-[:works_in{arrivee:row.arrivee,depart:row.depart}]->(i)
