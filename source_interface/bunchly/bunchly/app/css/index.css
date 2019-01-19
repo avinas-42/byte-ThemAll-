@@ -1,8 +1,8 @@
 body
 {
     width: 100%;
-    
-    background-color: blueviolet;
+    margin:auto;
+    background-color: black !important;
 }
 
 div
@@ -10,11 +10,23 @@ div
     background-color: white;
 }
 
+#search-button
+{
+    margin: 0.25%;
+}
+
+#search-input
+{
+    width: 95%;
+    
+    font-size: 200%;
+}
+
 #search-div
 {
     float: top;
-    width: 60%;
-    height: 5%;
+    width: 70%;
+    margin-top:1%;
     margin-left: 26%;
 
     border-style: solid;
@@ -25,7 +37,7 @@ div
 {
     float:left;
     width: 20%;
-    padding-bottom: 100%;
+    padding-bottom: 90%;
     margin: 2%;
 
     border-style: solid;
@@ -34,7 +46,7 @@ div
 #display-div
 {
     float:left;
-    width: 60%;
+    width: 70%;
     padding-bottom: 90%;
     margin: 2%;
 
